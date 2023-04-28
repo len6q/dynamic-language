@@ -1,0 +1,24 @@
+{% extends "_base.html" %}
+{% block content %}
+{% if files %}
+<table border="1">
+    <caption>Таблица результатов</caption>
+    <tr>
+        <th>Имя файла</th>
+        <th>Самое частое слово в файле </th>
+    </tr>
+    {% for key, value in files.items() %}
+    <tr>
+        <td>{{key}}</td>
+        {% if value %}
+        <td>{{value}}</td>
+        {% else %}
+        <td>-</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>Данных пока нет</p>
+{% endif %}
+{% endblock %}
